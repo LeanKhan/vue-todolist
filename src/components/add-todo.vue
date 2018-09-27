@@ -1,17 +1,51 @@
 <template>
   <div class="container">
-    <h2>Place your todos here!</h2>
-    <h4>{{today.toLocaleDateString()}}</h4>
-    <input type="text" :placeholder= "todo" v-model="todo" @keyup.enter="addTodo(todo)">
-   
-    <button class="addTodo"  @click="addTodo(todo)">Add todo</button>
-    <ul>
-      <li v-for="(todo, i) in todoList" v-bind:key="i">
-      <a @click="toggleCompleted(i)">done</a>
-       <span>{{i}}</span> <input type="text" @dblclick.self="focus($event)" readonly v-model=todo.todoText @keyup.self.enter="editTodo(todo.todoText,i,$event)" v-bind:class="{completed: todo.completed}">
-       <a @click="deleteTodo(i)">delete</a>
-      </li>
-    </ul>
+
+  <!-- Side bar -->
+  <aside>
+  
+  </aside>
+
+  <!-- Todos Card -->
+  <main>
+    <!-- TodoInput Header -->
+    <div class="header">
+
+      <div class="col-12">
+        <h4>Time and Date</h4>
+        <span></span>
+      </div>
+
+      <div class="col-12">
+        <input type="text" v-model="todo" @keyup.enter="addTodo(todo)" class="todo-input" />
+        <button class="addTodo"  @click="addTodo(todo)"><h3>add</h3></button>
+      </div>
+
+    </div>
+
+    <!-- TodoList Content -->
+    <div class="content">
+      <ul>
+      
+        <li v-for="(todo, i) in todoList" v-bind:key="i" >
+        <input type="checkbox" @click="toggleCompleted(i)" />
+
+        <input type="text" @dblclick.self="focus($event)" readonly v-model=todo.todoText class="todo-input"
+        @keyup.self.enter="editTodo(todo.todoText,i,$event)" v-bind:class="{completed: todo.completed}" />
+
+        <a @click="deleteTodo(i)">x</a>
+
+        </li>
+
+      </ul>
+    </div>
+
+    <!-- TodoList footer -->
+    <footer>
+    </footer>
+
+  </main>
+    
   </div>
 </template>
 
@@ -54,6 +88,9 @@ export default {
 </script>
 
 <style scoped>
+.todo-input {
+  font-size: 24px;
+}
   ul {
     list-style-type: none;
   }
@@ -67,6 +104,14 @@ export default {
   .completed {
     text-decoration: line-through !important;
     color: gray;
+  }
+  aside {
+    margin: 20px;
+  }
+  input[type="checkbox"] {
+    width: 25px;
+    height: 25px;
+    outline: none;
   }
 </style>
 

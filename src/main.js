@@ -2,6 +2,10 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from "vue";
 import App from "./App";
+require("../bootstrap.css");
+require("../todos.css");
+require("../bootstrap.min.css");
+require("../bootstrap-grid.css");
 
 Vue.config.productionTip = false;
 

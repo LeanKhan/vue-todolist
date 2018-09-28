@@ -10,8 +10,8 @@ import addTodo from "./components/add-todo";
 export default {
   name: "App",
   components: {
-   addTodo,
-  },
+    addTodo
+  }
 };
 </script>
 
@@ -21,7 +21,12 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #f5f5f5;
   margin-top: 60px;
+}
+
+body {
+  background-color: #17171C !important;
+  overflow-x: hidden;
 }
 </style>

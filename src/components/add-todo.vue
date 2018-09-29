@@ -49,7 +49,6 @@
 
           <li v-for="(todo, i) in todoList" v-bind:key="i" class="d-flex">
             <span class=" btn " @click="toggleCompleted(i)"></span>
-
             <input type="text" @dblclick.self="focus($event)" readonly v-model=todo.todoText
             @keyup.self.enter="editTodo(todo.todoText,i,$event)" v-bind:class="{completed: todo.completed}" />
 
@@ -60,7 +59,6 @@
         </ul>
 
       </div>
-
     </div>
 
   </section>
@@ -74,7 +72,6 @@
     <p>by emmanuel-segun-lean</p>
     <p><a href="https://twitter.com/leankhan_" target="_blank">twitter</a>  <a href="https://github.com/LeanKhan" target="_blank">github</a></p>
   </footer>
-
 
   </div>
 </template>
@@ -154,7 +151,6 @@ export default {
         default:
           return month;
       }
-    }
   }
 };
 </script>
